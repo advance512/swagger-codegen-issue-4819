@@ -10,6 +10,10 @@ then run the server:
 node server.js
 ```
 
-Then please open index.html and look at JavaScript console.  
+It will offer a RESTful API on http://localhost:5000/ping which you can test.
+
+Then please open:
+http://localhost:5000/index.html
+and look at JavaScript console.
 
 Note that the bundle.js file was created using browserify, as explained in the swagger-codegen client's README.me file.

@@ -10,6 +10,8 @@ var exampleData = {
 	  someInt: 3
 	};
 
+app.use(express.static('static'))
+
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -26,5 +28,7 @@ app.get(
 var server = app.listen(5000, function () {
   var host = server.address().address;
   var port = server.address().port;
-  console.log("Example app listening at http://%s:%s", host, port);
+  console.log("Server listening at http://localhost:%s", port);
+  console.log("Example page is at http://localhost:%s/index.html", port);
+  console.log("RESTful API call is at http://localhost:%s/ping", port);
 });
