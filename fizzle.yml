@@ -1,0 +1,101 @@
+swagger: '2.0'
+info:
+  version: 0.8.127
+  title: Fizzle
+  description: Example
+schemes:
+  - http
+host: localhost:5000
+basePath: /
+consumes:
+  - application/json
+produces:
+  - application/json
+
+paths:
+  /ping:
+    get:
+      operationId: ping
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/SomeObject'
+        '500':
+          $ref: '#/responses/InternalServerError'
+        default:
+          $ref: '#/responses/TotallyUnexpectedResponse'
+
+definitions:
+
+  Language:
+    type: string
+    enum:
+      - LANGUAGE_ar
+      - LANGUAGE_bg
+      - LANGUAGE_ca
+      - LANGUAGE_zh_CN
+      - LANGUAGE_zh_TW
+      - LANGUAGE_hr
+      - LANGUAGE_cs
+      - LANGUAGE_da
+      - LANGUAGE_nl
+      - LANGUAGE_en
+      - LANGUAGE_et
+      - LANGUAGE_tl
+      - LANGUAGE_fi
+      - LANGUAGE_fr
+      - LANGUAGE_de
+      - LANGUAGE_el
+      - LANGUAGE_iw
+      - LANGUAGE_hi
+      - LANGUAGE_hu
+      - LANGUAGE_is
+      - LANGUAGE_id
+      - LANGUAGE_it
+      - LANGUAGE_ja
+      - LANGUAGE_ko
+      - LANGUAGE_lv
+      - LANGUAGE_lt
+      - LANGUAGE_ms
+      - LANGUAGE_no
+      - LANGUAGE_fa
+      - LANGUAGE_pl
+      - LANGUAGE_pt
+      - LANGUAGE_ro
+      - LANGUAGE_ru
+      - LANGUAGE_sr
+      - LANGUAGE_sk
+      - LANGUAGE_sl
+      - LANGUAGE_es
+      - LANGUAGE_sv
+      - LANGUAGE_th
+      - LANGUAGE_tr
+      - LANGUAGE_uk
+      - LANGUAGE_ur
+      - LANGUAGE_vi
+
+  SomeObject:
+    type: object
+    properties:
+      languages:
+        type: array
+        minItems: 0
+        maxItems: 3
+        uniqueItems: true
+        items:
+          $ref: '#/definitions/Language'
+      justOneLanguage:
+        $ref: '#/definitions/Language'
+      someInt:
+        type: integer
+
+# ===============================================================================
+# Responses
+# ===============================================================================
+
+responses:
+  InternalServerError:
+    description: An unexpected error occured.
+  TotallyUnexpectedResponse:
+    description: A totally unexpected response
+
