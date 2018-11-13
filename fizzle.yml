@@ -18,6 +18,7 @@ paths:
       operationId: ping
       responses:
         '200':
+          description: Ping success
           schema:
             $ref: '#/definitions/SomeObject'
         '500':
